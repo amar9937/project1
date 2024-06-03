@@ -7,7 +7,7 @@ from kivymd.toast import toast
 from kivy.core.text import LabelBase
 from kivy.uix.image import Image
 from kivy.core.window import Window
-from kivytransitions.transitions import SimpleZoom,PageCurl
+#from kivytransitions.transitions import SimpleZoom,PageCurl
 
 #Other Backend Modules
 import datetime
@@ -25,7 +25,7 @@ class WeatherScreen(MDScreen):
 
 class LoginScreen(MDScreen):
     def check(self):
-        MDApp.get_running_app().sm.transition = PageCurl(duration=2)
+        #MDApp.get_running_app().sm.transition = PageCurl(duration=2)
         if self.ids.loginpass.text == 'tihudikhordharasala':
             MDApp.get_running_app().sm.current = 'hack'
 
@@ -64,7 +64,7 @@ class BigDaddyApp(MDApp):
         self.theme_cls.theme_style = 'Dark'
         self.theme_cls.material_style = 'M3'
         self.sm = ScreenManager()
-        self.sm.transition = SimpleZoom(duration=2)
+        #self.sm.transition = SimpleZoom(duration=2)
         self.sm.add_widget(WeatherScreen(name='weather'))
         self.sm.add_widget(LoginScreen(name='login'))
         self.sm.add_widget(HackScreen(name='hack'))
