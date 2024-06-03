@@ -1,0 +1,150 @@
+#:import C kivy.utils.get_color_from_hex
+
+<WeatherScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/night.jpeg"
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: [10,150,10,20]
+
+        MDBoxLayout:
+            radius: [10,]
+            size_hint_y: .13
+            md_bg_color: [0,0,0,0.5]
+            
+            MDBoxLayout:
+                orientation: 'horizontal'
+                padding: [10,0,0,0]
+                # spacing: 10
+
+                MDIcon:
+                    icon: "magnify"
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+                    pos_hint: {'center_y': .5}
+
+                MDTextField:
+                    id: search
+                    size_hint_x: .9
+                    font_name: 'poppins'
+                    color_mode: 'custom'
+                    text_color_normal: 1,1,1,1
+                    text_color_focus: 1,1,1,1
+                    line_color_normal: 1,1,1,0
+                    line_color_focus: 1,1,1,0
+                    pos_hint: {'center_y': .55}
+                    on_text_validate: root.check()
+        
+        MDBoxLayout:
+
+<LoginScreen>:
+    md_bg_color: C('#17181c')
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDBoxLayout:
+            orientation: 'vertical'
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: [20,0,20,0]
+                spacing: 50
+                md_bg_color: C('#17181c')
+
+                Image:
+                    id: diamond
+                    size_hint_y: None
+                    height: self.parent.height/2
+                    source: 'images/diamond.png'
+
+                MDTextField:
+                    id: loginpass
+                    hint_text: "Security Key"
+                    mode: 'rectangle'
+                    password: True
+                    line_color_normal: C('#96fff6')
+                    line_color_focus: C('#96fff6')
+                    hint_text_color_normal: C('#96fff6')
+                    hint_text_color_focus: C('#96fff6')
+                    radius: [5,]
+                    text_color_normal: 'violet'
+                    text_color_focus: 'violet'
+                    font_name: 'hack'
+                    font_name_hint_text: 'hack'
+                    size_hint_x: .9
+                    pos_hint: {'center_x':.5}
+                    on_text_validate: root.check()
+                    
+        MDBoxLayout:
+            
+<HackScreen>:
+    md_bg_color: C('#7968d9')
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: [20,]
+        spacing: 20
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: .15
+            # padding: [20,0,20,0]
+            spacing: 20
+            md_bg_color: C('#7968d9')
+            
+            MDTextField:
+                id: profit
+                size_hint_x: .6
+                hint_text: "Profit"
+                mode: 'rectangle'
+                line_color_normal: C('#17181c')
+                line_color_focus: C('#17181c')
+                hint_text_color_normal:C('#17181c')
+                hint_text_color_focus: C('#17181c')
+                radius: [5,]
+                text_color_normal: C('#17181c')
+                text_color_focus: C('#17181c')
+                font_name: 'poppinsbold'
+                font_name_hint_text: 'poppinsbold'
+                size_hint_x: .9
+                pos_hint: {'center_x':.5}
+                error_color: 'white'
+                on_text: root.evaluate()
+
+            MDSwitch:
+                size_hint_x: .2
+                track_color_active: C('#fed47e')
+                thumb_color_active: 'white'
+                icon_active: 'check'
+                icon_active_color: 'violet'
+                pos_hint: {'center_x':.5}
+
+            Widget:
+                size_hint_x: .1
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: .7
+
+            MDGridLayout:
+                id: mygrid
+                rows: 4
+                cols: 4
+                # padding: [20,0,10,0]
+                spacing: 10
+
+        MDBoxLayout:
+            size_hint_y: .15
+
+            MDLabel:
+                id: amount
+                text: '[font=poppinsbold]2555[/font]'
+                markup: True
+                font_style: 'H3'
+                halign: 'center'
+                theme_text_color: 'Custom'
+                text_color: C('#17181c')
