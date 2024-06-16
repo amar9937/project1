@@ -1,0 +1,176 @@
+#: import C kivy.utils.get_color_from_hex
+<MainScreen>:
+
+    ScrollableLabel:
+        id: scroll
+        scroll_y: 0
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 10
+
+            Widget:
+                size_hint_y: None
+                height: dp(20)
+
+            Label:
+                id: banner1
+                size_hint_y: None
+                height: self.texture_size[1]
+                # text_size: self.width, None
+                text: '--------Original Mode--------'
+                halign: 'center'
+                font_name: 'hack'
+                color: C(app.hack_color)
+
+            Label:
+                id: lab1
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width, None
+                font_name: 'hack'
+                color: C(app.hack_color)
+
+            Label:
+                id: banner2
+                size_hint_y: None
+                height: self.texture_size[1]
+                # text_size: self.width, None
+                text: '--------Original Mode--------'
+                halign: 'center'
+                font_name: 'hack'
+                color: C(app.hack_color)
+
+            Label:
+                id: lab2
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width, None
+                font_name: 'hack'
+                color: C(app.hack_color)
+
+            Label:
+                id: banner3
+                size_hint_y: None
+                height: self.texture_size[1]
+                # text_size: self.width, None
+                text: '--------Original Mode--------'
+                halign: 'center'
+                font_name: 'hack'
+                color: C(app.hack_color)
+
+            Label:
+                id: lab3
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width, None
+                font_name: 'hack'
+                color: C(app.hack_color)
+            
+            Label:
+                id: banner4
+                size_hint_y: None
+                height: self.texture_size[1]
+                # text_size: self.width, None
+                text: '--------Original Mode--------'
+                halign: 'center'
+                font_name: 'hack'
+                color: C(app.hack_color)
+
+            Label:
+                id: lab4
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width, None
+                font_name: 'hack'
+                color: C(app.hack_color)
+
+            Widget:
+                size_hint_y: None
+                height: dp(10)
+
+            ImageButton:  
+                source:'redskull.png'  
+                size_hint_y: None
+                size_hint_x: None
+                pos_hint: {'center_x': 0.5}
+
+            Widget:
+                size_hint_y: None
+                height: dp(20)
+
+<Data_Content>:
+    orientation: 'vertical'
+    spacing: 10
+    padding: [0,5,0,5]
+
+    TextInput:
+        id: text1
+        hint_text: 'initial value'
+        multiline: False
+        on_text_validate: text2.focus = True
+        
+    TextInput:
+        id: text2
+        hint_text: 'profit margin'
+        multiline: False
+        on_text_validate: text3.focus = True
+
+    TextInput:
+        id: text3
+        hint_text: 'end margin'
+        multiline: False
+        on_text_validate: text4.focus = True
+
+    TextInput:
+        id: text4
+        hint_text: 'turn over'
+        multiline: False
+        on_text_validate: app.sm.hack(root)
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_x: .5
+        pos_hint: {'right':1}
+        spacing: 10
+        Button:
+            text: 'abort'
+            on_release: app.sm.abort(root)
+            
+        Button:
+            text: 'hack'
+            on_release: app.sm.hack(root)
+            
+
+<Anim_Content>:
+    orientation: 'vertical'
+    spacing: 25
+    padding: 20
+    size_hint_y: None
+    height: self.minimum_height
+
+    Image:
+        source: 'redskull.png'
+        size_hint_y: None
+        height: '150dp'
+
+    Label:
+        id: lab
+        text: 'hello'*50
+        halign: 'left'    
+        size_hint_y: None
+        height: self.texture_size[1]
+        text_size: self.width, None
+        font_name: 'hack'
+        color: C(app.hack_color)            
+
+<CalScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        GridLayout:
+            id: grid
+            rows: 3
+            cols: 3
